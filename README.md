@@ -43,10 +43,10 @@ Create a `codebuild` project in aws and give the `path to buildspec file from yo
 
 
 ### Explanation
-* Before pre build we define our app environmet 'node js' and `activate docker demon to build docker image`
+* Before pre build we define our app environmet `node js` and `activate docker demon to build docker image`
 * #### Pre Build:
     * Get AWS version
-    * AWS region 'us-east-2'
+    * AWS region ` us-east-2 `
     * login in to AWS ECR
     * COMMIT hash
     * Creating image tag
