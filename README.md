@@ -1,68 +1,36 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+# CI/CD Pipeline for AWS ECS
 
-In the project directory, you can run:
 
-### `npm start`
+### Note: I have a basic project of music webapp , i will be using ECS and docker to deploy it on cloud. 
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+`Amazon Elastic Container Service (ECS)` is Amazon’s solution for running and orchestrating Docker containers. It provides an interface for defining and deploying Docker containers to run on clusters of EC2 instances or Farget.
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+### Prerequisites
+* You should have VPC created in your account with Public and Private Subnets and Private subnets should have a route to NAT Gateway.
 
-### `npm test`
+* Amazon Elastic Container Service (ECS) Cluster.
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+* Application Load Balancer.
 
-### `npm run build`
+* ECR Repository.
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+* Permission to Create IAM roles, policies.
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+* 'Buildspec file' to build project. 
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+* 'Docker' file to containerized application.
 
-### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## Lets get started
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Step 1
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+Push you code to `AWS codecommit` (you code should also have docker and buildspec file) .
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+Step 2 
 
-## Learn More
+Create a `codebuild` project in aws and give the `path to buildspec file from your repo` .
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
 
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
