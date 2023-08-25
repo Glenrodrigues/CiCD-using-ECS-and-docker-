@@ -1,0 +1,21 @@
+version: 0.2
+
+phases:
+  pre_build:
+    commands:
+      - echo "Logging in to Amazon ECR..."
+      - aws ecr get-login-password --region us-east-2
+  build:
+    commands:
+      - echo "Building the Docker image..."
+      - docker build -t mernimage:$CODEBUILD_RESOLVED_SOURCE_VERSION .
+  post_build:
+    commands:
+      - echo "Tagging the Docker image..."
+      - docker tag mernimage:$CODEBUILD_RESOLVED_SOURCE_VERSION 945544224092.dkr.ecr.us-east-2.amazonaws.com/mernimage:$CODEBUILD_RESOLVED_SOURCE_VERSION
+      - echo "Pushing the Docker image to Amazon ECR..."
+      - docker push 945544224092.dkr.ecr.us-east-2.amazonaws.com/mernimage:$CODEBUILD_RESOLVED_SOURCE_VERSION
+
+artifacts:
+  files: 
+    - '**/*'
