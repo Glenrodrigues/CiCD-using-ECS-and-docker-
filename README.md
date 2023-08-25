@@ -30,7 +30,38 @@ Push you code to `AWS codecommit` (you code should also have docker and buildspe
 
 Step 2 
 
-Create a `codebuild` project in aws and give the `path to buildspec file from your repo` .
+Create a `codebuild` project in aws and give the `path to buildspec file from your repo`.
+
+-------------------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------------------------
+
+![image](https://github.com/Glenrodrigues/CiCD-using-ECS-and-docker-/blob/main/images/Screenshot%202023-08-25%20162638.png)
+
+
+### Note: change the black box data according to your region an ECR repo URI 
+
+
+
+### Explanation
+* Before pre build we define our app environmet 'node js' and `activate docker demon to build docker image`
+* #### Pre Build:
+    * Get AWS version
+    * AWS region 'us-east-2'
+    * login in to AWS ECR
+    * COMMIT hash
+    * Creating image tag
+* #### Build:
+   * Building `Docker-image`.
+   * Tagging the Image.
+* #### Post Build:
+   * Push the image to ECR repo.
+   * creating Artifact
+* ### Artifact:
+   * Artifcat name.json
+     Artifact will store in S3 bucket.
+
+
+
 
 
 
