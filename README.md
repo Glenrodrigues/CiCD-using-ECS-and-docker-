@@ -60,6 +60,24 @@ Create a `codebuild` project in aws and give the `path to buildspec file from yo
    * Artifcat name.json
      Artifact will store in S3 bucket.
 
+## Step 3
+
+Create a task defination under ECS and give Image URI to it.
+
+## Step 4
+
+Create Cluster and launch a service and `mention task def and its version` in service, also select `farget serverless machine` to deploy the application .
+
+## Step 5
+
+create a code pipeline project and mention source=`codecommit` , `codebuild` .
+3 stage pipline will be create and application will be live on define port (3000)
+
+
+
+
+
+
 
 
 
